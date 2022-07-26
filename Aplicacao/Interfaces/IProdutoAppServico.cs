@@ -1,12 +1,13 @@
 ﻿using GestaoDeProdutosAPI.Dominio.Entidades;
 using System.Collections.Generic;
 
-namespace GestaoDeProdutosAPI.Dominio.Interfaces
+namespace GestaoDeProdutosAPI.Aplicacao.Interfaces
 {
-    public interface IProdutoRepositorio : IRepositorioBase<Produto>
+    public interface IProdutoAppServico : IAppServicoBase<Produto>
     {
         IEnumerable<Produto> GetTodosPaginado(Produto filtro, int pagina, int numeroRegistros);
 
         void ExcluirLogico(int id);
+        
     }
 }

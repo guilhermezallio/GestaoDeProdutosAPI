@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using GestaoDeProdutosAPI.API.Modelos;
-using GestaoDeProdutosAPI.API.VisaoModelos;
+using GestaoDeProdutosAPI.API.ModelView;
 using GestaoDeProdutosAPI.Dominio.Entidades;
 
 namespace GestaoDeProdutosAPI.API.AutoMapper
@@ -9,12 +8,12 @@ namespace GestaoDeProdutosAPI.API.AutoMapper
     {
         public VisaoModeloParaDominioPerfilMapeamento()
         {
-            CreateMap<Produto, ProdutoVisaoModelo>();
-            CreateMap<Fornecedor, FornecedorVisaoModelo>();
+            CreateMap<Produto, ProdutoModelView>();
+            CreateMap<Fornecedor, FornecedorModelView>();
         }
         public override string ProfileName
         {
-            get { return "DominioParaVisaoModeloMapeamento"; }
+            get { return "VisaoModeloParaDominioMapeamento"; }
         }
     }
 }

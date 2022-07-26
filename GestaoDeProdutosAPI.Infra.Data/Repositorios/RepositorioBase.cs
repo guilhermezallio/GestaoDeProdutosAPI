@@ -26,7 +26,7 @@ namespace GestaoDeProdutosAPI.Infra.Data.Repositorios
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            DB.Dispose();
         }
 
         public void Excluir(TEntidade obj)
