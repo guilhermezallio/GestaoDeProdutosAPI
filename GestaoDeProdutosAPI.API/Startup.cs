@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.OData;
 
 namespace GestaoDeProdutosAPI.API
 {
@@ -32,7 +33,6 @@ namespace GestaoDeProdutosAPI.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -48,6 +48,7 @@ namespace GestaoDeProdutosAPI.API
             services.AddScoped<IFornecedorRepositorio, FornecedorRepositorio>();
             services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
 
+            services.AddControllers().AddOData(option => option.Filter().SkipToken().SetMaxTop(null));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,12 +4,10 @@ using GestaoDeProdutosAPI.API.Model;
 using GestaoDeProdutosAPI.API.ModelView;
 using GestaoDeProdutosAPI.Aplicacao.Interfaces;
 using GestaoDeProdutosAPI.Dominio.Entidades;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 using System;
 using System.Collections.Generic;
-using System.Web.Http.OData;
-using System.Web.Http.OData.Query;
 
 namespace GestaoDeProdutosAPI.API.Controllers
 {
@@ -37,7 +35,7 @@ namespace GestaoDeProdutosAPI.API.Controllers
 
         //Listar Registros Filtrando a Partir de Parâmetros e paginando a resposta.
         [HttpGet]
-        [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.Filter | AllowedQueryOptions.Skip)]
+        [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.Filter | AllowedQueryOptions.Skip | AllowedQueryOptions.Top)]
         public IEnumerable<ProdutoModelView> GetTodosFiltro()
         {
             return _map.Map<IEnumerable<Produto>, IEnumerable<ProdutoModelView>>(_produtoApp.GetTodos());
